@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const classroomSchema = new mongoose.Schema({
+const applicationSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
@@ -36,7 +36,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  classroom: [classroomSchema]
+  application: [applicationSchema]
 });
 
 const User = mongoose.model('User', userSchema);
