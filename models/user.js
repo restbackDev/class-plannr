@@ -1,23 +1,20 @@
 const mongoose = require('mongoose');
-const applicationSchema = new mongoose.Schema({
-  company: {
-    type: String,
-    required: true
-  },
+const classroomSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true
   },
-  notes: {
+  date: {
     type: String,
   },
-  postingLink: {
+  time: {
     type: String,
     required: true
   },
-  status: {
+  day: {
     type: String,
-    enum: ['interested', 'applied', 'interviewing', 'rejected', 'accepted'],
+    required: true,
+    enum: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday'],
   },
 });
 
@@ -25,12 +22,21 @@ const userSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
+    unique: true,
   },
   password: {
     type: String,
     required: true,
   },
-  applications: [applicationSchema]
+  name: {
+    type: String,
+    required: true
+  },
+  role: {
+    type: String,
+    required: true,
+  },
+  classroom: [classroomSchema]
 });
 
 const User = mongoose.model('User', userSchema);
