@@ -6,10 +6,11 @@ const applicationSchema = new mongoose.Schema({
   },
   date: {
     type: String,
+    required: true,
   },
   time: {
     type: String,
-    required: true
+    required: true,
   },
   day: {
     type: String,
@@ -36,7 +37,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  application: [applicationSchema]
+  applications: [applicationSchema]
 });
 
 const User = mongoose.model('User', userSchema);

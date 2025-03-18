@@ -1,9 +1,16 @@
-<nav>
-  <% if(user) { %>
-    <a href="/user/<%= user._id %>/applications">Your Apps</a>
-    <a href="/auth/sign-out">Sign Out</a>
-  <% } else { %>
-      <a href="/auth/sign-in">Sign In</a>
-      <a href="/auth/sign-in">Sign Up</a>
-  <% } %>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    
+    <div class="navbar-menu">
+      <div class="navbar-start">
+        <% if(user) { %>
+          <a class="navbar-item" href="/users/<%= user._id %>/applications">Your Apps</a>
+          <a class="navbar-item"  href="/auth/sign-out">Sign Out</a>
+        <% } else { %>
+            <a class="navbar-item"  href="/">Back</a>
+            <a class="navbar-item"  href="/auth/sign-up">Sign Up</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
 </nav>

@@ -1,50 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css" />
     <link href="/style.css" rel="stylesheet" type="text/css" />
     <title>Sign Up</title>
   </head>
   <body>
+    <header class="hero">
+      <div class="hero-body">
+        <h1 class="title">Class plannr</h1>
+        <h2 class="subtitle">A class schedule application tracker.</h2>
+        <%- include('../partials/_navbar.ejs') %>
+      </div>
+    </header>
     <main>
-      <section>
+      <section class="box container is-max-tablet signIn-card">
+        <h3 class="title is-4">Sign-Up</h3>
+        <div class="field">
+          <form action="/auth/sign-up" method="POST">
 
-        <h1>Create a new account!</h1>
-        <form action="/auth/sign-up" method="POST">
-          <!-- username -->
-          <label for="username">Username:</label>
-          <input type="text" name="username" id="username" required />
-          <br />
-          
-          <!-- name -->
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" required />
-        <br />
-        
-        <!-- role -->
-        <label for="role">Role:</label>
-        <select name="role">
-          <option value="instructor">Instructor</option>
-          <option value="student">Student</option>
-        </select>
-        <br />
-        
-        <!-- password -->
-        <label for="password">Password:</label>
-        <input type="password" name="password" id="password" required />
-        <label for="confirmPassword">Confirm Password:</label>
-        <input
-        type="password"
-        name="confirmPassword"
-        id="confirmPassword"
-        required
-        />
-        <br />
-        
-        <button type="submit">Sign up</button>
-      </form>
-    </section>
+            <!-- username -->
+            <label class="label" for="username">Username:</label>
+            <input class="input is-success" type="text" name="username" id="username" placeholder="Username" required />
+            <br />
+            
+            <!-- name -->
+            <label class="label" for="name">Name:</label>
+            <input class="input is-success" type="text" name="name" id="name" placeholder="Name" required />
+            <br />
+            
+            <!-- role -->
+            <label class="label" for="role">Role:</label>
+            <select name="role">
+              <option value="instructor">Instructor</option>
+              <option value="student">Student</option>
+            </select>
+            <br />
+            
+            <!-- password -->
+            <label class="label" for="password">Password:</label>
+            <input class="input is-success" type="password" name="password" id="password" required />
+            <label class="label" for="confirmPassword">Confirm Password:</label>
+            <input class="input is-success" type="password" name="confirmPassword" id="confirmPassword" required />
+            <br />
+            
+            <button class="button is-link mt-2" type="submit">Sign up</button>
+          </form>
+        </div>
+      </section>
     </main>
+    <%- include('../partials/_footer.ejs') %>
   </body>
 </html>

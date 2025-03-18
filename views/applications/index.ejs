@@ -1,37 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
     <title>Dashboard Page - Class Plannr</title>
   </head>
   <body>
-    <header>
-      <h1>Class Plannr</h1>
-      <%- include('../partials/_navbar.ejs') %>
+    <header class="hero">
+      <div class="hero-body">
+        <h1 class="title">Class plannr</h1>
+        <h2 class="subtitle">A class schedule application tracker.</h2>
+        <%- include('../partials/_navbar.ejs') %>
+      </div>
     </header>
     <main>
       <section>
         <div>
           <h2>Hello <%= user.name %></h2>
-          <h4>Create Class</h4>
-          <button><a href="/users/<%= user._id %>/applications/new">Button</a></button>
-          <h4>Edit/Delete Class</h4><button>Button</button>
-          <h4>View All Classes</h4><button>Button</button>
+          <h4>Create a Class</h4>
+          <button class="button is-link"><a href="/users/<%= user._id %>/applications/new">Button</a></button>
+          <h4>View all the Classes</h4>
+          <button class="button is-link">
+            <a>Button</a>
+          </button>
         </div>
+
+        <div>
+          <ul>
+            <% user.applications.forEach(application => { %>
+              <li>
+                <a href="/users/<%= user._id %>/applications/<%= application._id %>">
+                  <%= application.title %>  <%= application.date %> <%= application.time %> <%= application.day %> 
+                </a>
+              </li>
+            <% }); %>
+          </ul>
+        </div>
+
         <h3>This week's Class Schedule:</h3>
       </section>
       <br>
       <section class="weekday">
         <div>
           <div><h4>Monday</h4></div>
+          <p>test</p>
         </div>
         <div>
           <div><h4>Tuesday</h4></div>
         </div>
         <div>
           <div><h4>Wednesday</h4></div>
+          <p>boxing</p>
         </div>
         <div>
           <div><h4>Thursday</h4></div>
@@ -41,5 +62,6 @@
         </div>
       </section>
     </main>
+    <%- include('../partials/_footer.ejs') %>
   </body>
 </html>
