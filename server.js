@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const morgan = require('morgan');
 const session = require('express-session');
-
+const path = require('path');
 //middleware
 const isSignedIn = require('./middleware/is-signed-in.js');
 const passUserToView = require('./middleware/pass-user-to-view.js');
@@ -35,6 +35,10 @@ app.use(
 app.use(passUserToView); //passUserView comes after session middleware but before homepage
 //MUST BE ABOVE app.get "/"
 
+
+app.use(express.static(path.join(__dirname, 'public'))); //use the path for all css files in the public folder
+
+
 app.get('/', (req, res) => {
   // Check if the user is signed in
   if (req.session.user) {
@@ -48,7 +52,7 @@ app.get('/', (req, res) => {
 
 app.use('/auth', authController);
 app.use(isSignedIn);//MUST BE BELOW app.use "/auth"
-app.use('/users/:userId/applications', applicationsController);
+app.use('/users/:userId/applications', applicationsController); //when signing in successfully
 
 
 app.listen(port, () => {

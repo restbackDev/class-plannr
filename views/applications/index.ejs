@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/style.css" rel="stylesheet" type="text/css">
+    <title>Dashboard Page - Class Plannr</title>
+  </head>
+  <body>
+    <header>
+      <h1>Class Plannr</h1>
+      <%- include('../partials/_navbar.ejs') %>
+    </header>
+    <main>
+      <section>
+        <div>
+          <h2>Hello <%= user.name %></h2>
+          <h4>Create Class</h4>
+          <button><a href="/users/<%= user._id %>/applications/new">Button</a></button>
+          <h4>Edit/Delete Class</h4><button>Button</button>
+          <h4>View All Classes</h4><button>Button</button>
+        </div>
+        <h3>This week's Class Schedule:</h3>
+      </section>
+      <br>
+      <section class="weekday">
+        <div>
+          <div><h4>Monday</h4></div>
+        </div>
+        <div>
+          <div><h4>Tuesday</h4></div>
+        </div>
+        <div>
+          <div><h4>Wednesday</h4></div>
+        </div>
+        <div>
+          <div><h4>Thursday</h4></div>
+        </div>
+        <div>
+          <div><h4>Friday</h4></div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
