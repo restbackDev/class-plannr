@@ -18,23 +18,25 @@
     </div>
   </header>
   <main>
-    <section>
+    <section class="box container is-max-tablet signIn-card">
 
       <div>
-        <h1>
-        <%= application.title %>  <%= application.date %> <%= application.day %> at <%= application.time %>
-        </h1>
-        <a href="/users/<%= user._id %>/applications/<%= application._id %>/edit">
-          Edit this application
-        </a>
+        <h3>Title: <%= application.title %></h3>
+        <h3>Date: <%= application.date %></h3>
+        <h3>Time: <%= application.time %></h3>
+        <h3>Day: <%= application.day %></h3>
+        <button class="button is-rounded">
+          <a href="/users/<%= user._id %>/applications/<%= application._id %>/edit">Edit</a>
+        </button>
         <!-- delete link -->
         <form action="/users/<%= user._id %>/applications/<%= application._id %>?_method=DELETE" method="post">
-          <button type="submit">Delete this application</button>
+          <button class="button is-rounded" type="submit">Delete</button>
         </form>
       </div>
 
     </section>
   </main>
+  <%- include('../partials/_footer.ejs') %>
 </body>
 
 </html>

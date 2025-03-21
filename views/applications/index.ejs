@@ -15,51 +15,81 @@
         <%- include('../partials/_navbar.ejs') %>
       </div>
     </header>
-    <main>
+    <main class="container">
       <section>
         <div>
-          <h2>Hello <%= user.name %></h2>
-          <h4>Create a Class</h4>
-          <button class="button is-link"><a href="/users/<%= user._id %>/applications/new">Button</a></button>
-          <h4>View all the Classes</h4>
-          <button class="button is-link">
-            <a>Button</a>
+          <h3 class="is-size-3">Hello <%= user.name %></h2>
+          <% if (user.role === "instructor") { %>
+            <h4 class="is-size-4">Create a Class</h4>
+            <button class="button is-rounded"><a href="/users/<%= user._id %>/applications/new">Button</a></button>
+          <% } else { %>
+            <% null %>
+          <% } %>
+
+          <h4 class="is-size-4">View all the Classes</h4>
+          <button class="button is-rounded">
+            <a href="/users/<%= user._id %>/applications/view">Button</a>
           </button>
         </div>
-
-        <div>
-          <ul>
-            <% user.applications.forEach(application => { %>
-              <li>
-                <a href="/users/<%= user._id %>/applications/<%= application._id %>">
-                  <%= application.title %>  <%= application.date %> <%= application.time %> <%= application.day %> 
-                </a>
-              </li>
-            <% }); %>
-          </ul>
-        </div>
-
-        <h3>This week's Class Schedule:</h3>
       </section>
       <br>
-      <section class="weekday">
-        <div>
-          <div><h4>Monday</h4></div>
-          <p>test</p>
+      
+      <!-- the mondays - friddays in a row -->
+      <section>
+        <h3 class="is-size-3">This week's Class Schedule:</h3>
+        <div class="weekday">
+          
+          <!-- monday -->
+          <div>
+            <h4 class="is-size-4">Monday</h4>
+            <% user.applications.forEach(application => { %>
+              <% if (application.day === "monday") { %>           
+                  <p class="boxClass m-1"><%= application.title %> <br> <%= application.date %> <br> <%= application.time %></p>
+              <% } %>
+            <% }); %>
+          </div>
+
+          <!-- tuesday -->
+          <div>
+            <h4 class="is-size-4">Tuesday</h4>
+            <% user.applications.forEach(application => { %>
+              <% if (application.day === "tuesday") { %>           
+                  <p class="boxClass m-1"><%= application.title %> <br> <%= application.date %> <br> <%= application.time %></p>
+              <% } %>
+            <% }); %>
+          </div>
+
+          <!-- wednesday -->
+          <div>
+            <h4 class="is-size-4">Wednesday</h4>
+            <% user.applications.forEach(application => { %>
+              <% if (application.day === "wednesday") { %>           
+                  <p class="boxClass m-1"><%= application.title %> <br> <%= application.date %> <br> <%= application.time %></p>
+              <% } %>
+            <% }); %>
+          </div>
+
+          <!-- thursday -->
+          <div>
+            <h4 class="is-size-4">Thursday</h4>
+            <% user.applications.forEach(application => { %>
+              <% if (application.day === "thursday") { %>           
+                  <p class="boxClass m-1"><%= application.title %> <br> <%= application.date %> <br> <%= application.time %></p>
+              <% } %>
+            <% }); %>
+          </div>
+
+          <!-- friday -->
+          <div>
+            <h4 class="is-size-4">Friday</h4>
+            <% user.applications.forEach(application => { %>
+              <% if (application.day === "friday") { %>           
+                  <p class="boxClass m-1"><%= application.title %> <br> <%= application.date %> <br> <%= application.time %></p>
+              <% } %>
+            <% }); %>
+          </div>
         </div>
-        <div>
-          <div><h4>Tuesday</h4></div>
-        </div>
-        <div>
-          <div><h4>Wednesday</h4></div>
-          <p>boxing</p>
-        </div>
-        <div>
-          <div><h4>Thursday</h4></div>
-        </div>
-        <div>
-          <div><h4>Friday</h4></div>
-        </div>
+      
       </section>
     </main>
     <%- include('../partials/_footer.ejs') %>
