@@ -1,9 +1,10 @@
 
 # Class Plannr 
-![alt text](image.png)
+![alt text](/public/image.png)
 
 # Link
 Heoku
+## [Trello](https://trello.com/b/EE2dRrIv/project-2)
 
 ## Overview
 
@@ -68,8 +69,6 @@ To run this project locally, follow these steps:
 7. Open the app in your browser at `http://localhost:3000`.
 
 ### Planning Materials
-#### Trello
-You can view my planning documents [here](https://trello.com/b/EE2dRrIv/project-2).
 
 ---
 
