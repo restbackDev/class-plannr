@@ -2,9 +2,9 @@
 # Class Plannr 
 ![alt text](/public/image.png)
 
-# Link
-Heoku
-## [Trello](https://trello.com/b/EE2dRrIv/project-2)
+# Links
+### [Website App: Heroku](https://class-plannr-64bb5f80c15e.herokuapp.com/)
+### [Planning: Trello](https://trello.com/b/EE2dRrIv/project-2)
 
 ## Overview
 
